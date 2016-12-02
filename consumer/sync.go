@@ -143,11 +143,9 @@ func (c *Consumer) tryTCConnection(recentPath, token string) (*http.Response, *h
 
 	resp, err := c.client.Do(req)
 	if err != nil {
-		message := `Error dialing trafficcontroller server: %s.
-Please ask your Cloud Foundry Operator to check the platform configuration (trafficcontroller endpoint is %s).`
 		return nil, &httpError{
 			statusCode: -1,
-			error:      errors.New(fmt.Sprintf(message, err, c.trafficControllerUrl)),
+			error:      ErrNotReachable,
 		}
 	}
 

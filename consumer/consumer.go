@@ -26,6 +26,7 @@ var (
 	ErrBadResponse    = errors.New("bad server response")
 	ErrBadRequest     = errors.New("bad client request")
 	ErrLostConnection = errors.New("remote server terminated connection unexpectedly")
+	ErrNotReachable   = errors.New("Error dialing trafficcontroller server; Please check cloudfoundry configuration")
 )
 
 //go:generate hel --type DebugPrinter --output mock_debug_printer_test.go

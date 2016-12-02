@@ -236,7 +236,7 @@ var _ = Describe("Consumer connecting through a Proxy", func() {
 
 			It("connects using failing proxyFunc", func() {
 				Expect(err).To(HaveOccurred(), "THIS WILL FAIL ON GOLANG 1.3 - 1.3.3 DUE TO BUG IN STANDARD LIBRARY (see https://code.google.com/p/go/issues/detail?id=8755)")
-				Expect(err.Error()).To(ContainSubstring(errMsg))
+				Expect(err.Error()).To(Equal(consumer.ErrNotReachable.Error()))
 			})
 		})
 	})
